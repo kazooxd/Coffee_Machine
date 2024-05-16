@@ -1,4 +1,4 @@
-A coffee machine where you have 3 options: Espresso, Latte and Cappuccino
+A coffee machine with 3 options: Espresso, Latte and Cappuccino
 
 It asks you how many coins you want to insert. If you have inserted to many coins, it will give you the change, if you have not inserted enough coins, it will give you a refund.
 
