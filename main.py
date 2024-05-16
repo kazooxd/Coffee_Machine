@@ -7,8 +7,7 @@ coffee_type = "test"
 
 def stop_cm():
     global cm_working
-    if coffee_type == "off":
-        cm_working = False
+    cm_working = False
 
 
 def resources_report():
@@ -34,7 +33,6 @@ def espresso():
 
 
 def latte():
-    if coffee_type == "latte":
         if menu.resources["water"] < menu.MENU["latte"]["ingredients"]["water"]:
             print("Sorry, there is not enough water.")
             cm_choice()
@@ -51,7 +49,6 @@ def latte():
 
 
 def cappuccino():
-    if coffee_type == "cappuccino":
         if menu.resources["water"] < menu.MENU["cappuccino"]["ingredients"]["water"]:
             print("Sorry, there is not enough water.")
             cm_choice()
@@ -102,11 +99,17 @@ def cm_choice():
     while cm_working:
         coffee_type = input("What would you like? (espresso ($1.5) / latte ($2.5) / cappuccino ($3)")
 
-        stop_cm()
-        if cm_working:
+        if coffee_type == "off":
+            stop_cm()
+        elif coffee_type == "report":
             resources_report()
+        elif coffee_type == "espresso":
             espresso()
+            pay()
+        elif coffee_type == "latte":
             latte()
+            pay()
+        elif coffee_type == "cappuccino":
             cappuccino()
             pay()
 
